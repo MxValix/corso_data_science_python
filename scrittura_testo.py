@@ -12,10 +12,28 @@ def numero_occorrenze(key):
     return dim
 
 
-if __name__ == '__main__':
-    print("Inserisci la parola da ricercare: ")
-    a = input()
-    n = numero_occorrenze(a)
-    print("Ci sono", n, "occorrenze della parola", a)
-    #apertura_file()
+def lettura_file():
+    with open("text.txt") as f:
+        str = f.read()
+    s = str.replace(",", " ").split(" ")
+    return s
 
+
+def crea_dizionario(s):
+    dizionario = {}
+    for parola in s:
+        if parola in dizionario:
+            dizionario[parola] +=1
+        else:
+            dizionario[parola] =1
+    return dizionario
+
+
+if __name__ == '__main__':
+    # print("Inserisci la parola da ricercare: ")
+    # a = input()
+    # n = numero_occorrenze(a)
+    # print("Ci sono", n, "occorrenze della parola", a)
+    #apertura_file()
+    s = lettura_file()
+    print(crea_dizionario(s))
