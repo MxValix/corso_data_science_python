@@ -21,6 +21,7 @@ def gen_primi(n):
         if is_primo(i):
             yield i
 
+            
 def operazioni_Numeri():
     print(is_primo(7))
     for i in gen_primi(10):
