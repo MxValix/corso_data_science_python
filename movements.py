@@ -16,7 +16,14 @@ class Point:
 
 class DayHour:
 
-    def __init__(self, day:int, hour:int):
+    class InvalidHour(Exception):
+
+        def __init__(self, *args: object) -> None:
+            super().__init__(*args)
+
+    def __init__(self, day: int, hour: int):
+        if hour > 24 or hour < 0:
+            raise DayHour.InvalidHour()
         self.day = day
         self.hour = hour
 
@@ -30,7 +37,15 @@ if __name__ == '__main__':
     p2 = Point(0, 0)
     d = p1.distance(p2)
     print(d)
+    
     day1 = DayHour(5, 3)
-    day2 = DayHour(4, 3)
+    day2 = DayHour(6, 3)
     diff = day1.delta_hour(day2)
     print(diff)
+    
+    try:
+        dh = DayHour(3, 57)
+    except DayHour.InvalidHour:
+        print("errore")
+
+
