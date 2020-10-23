@@ -9,10 +9,15 @@ class Point:
         self.x = x
         self.y = y
 
+    def __str__(self) -> str:
+        return "( " + str(self.x) + ", " + str(self.y) + " )"
+
+    def __eq__(self, o: object) -> bool:
+        return self.x == o.x and self.y == o.y
+
     def distance(self, point) -> float:
         assert (isinstance(point, Point)) # controllare che il tipo sia giusto
         return math.sqrt((self.x - point.x) ** 2 + (self.y - point.y) ** 2)
-
 
 class DayHour:
 
@@ -27,6 +32,9 @@ class DayHour:
         self.day = day
         self.hour = hour
 
+    def __str__(self) -> str:
+        return "( " + str(self.day) + ", " + str(self.hour) + " )"
+
     def delta_hour(self, day_hour) -> int:
         assert (isinstance(day_hour, DayHour))
         return (self.day - day_hour.day) * 24 + (self.hour - day_hour.hour)
@@ -34,18 +42,21 @@ class DayHour:
 
 if __name__ == '__main__':
     p1 = Point(1, 1)
+    print(p1.__str__())
+
     p2 = Point(0, 0)
     d = p1.distance(p2)
     print(d)
-    
+
     day1 = DayHour(5, 3)
+    print(day1.__str__())
     day2 = DayHour(6, 3)
     diff = day1.delta_hour(day2)
     print(diff)
-    
+
     try:
         dh = DayHour(3, 57)
     except DayHour.InvalidHour:
         print("errore")
 
-
+    print(p1==p2)
