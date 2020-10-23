@@ -1,3 +1,4 @@
+import itertools
 import math
 
 
@@ -59,6 +60,16 @@ class Movement:
     #def __add__(self, o):
     #   return Path((self.start, self.end, o.start, o.end))
 
+class Path(Movement):
+    #new_id = itertools.count().__next__
+
+    def __init__(self, points: list, start_t, end_t):
+        super().__init__(points[0], points[len(points) - 1], start_t, end_t)
+        #self.id = Path.new_id()
+        self.points = points
+
+    def length(self) -> float:
+        return sum([self.points[i].distance(self.points[i + 1]) for i in range(0, len(self.points) - 1)])
 
 
 if __name__ == '__main__':
@@ -81,3 +92,7 @@ if __name__ == '__main__':
         print("errore")
 
     print(p1==p2)
+
+    m = Movement(Point(0, 0), Point(1, 1), DayHour(0, 0), DayHour(1, 1))
+    path = Path([Point(0, 0), Point(0, 1), Point(1, 1)], DayHour(0, 0), DayHour(1, 1))
+    print(path.start)
