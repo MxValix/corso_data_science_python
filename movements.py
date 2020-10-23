@@ -40,6 +40,27 @@ class DayHour:
         return (self.day - day_hour.day) * 24 + (self.hour - day_hour.hour)
 
 
+class Movement:
+    def __init__(self, start: Point, end: Point, start_time: DayHour, end_time: DayHour): #aggiungere tempi
+        self.start = start
+        self.end = end
+        self.start_time = start_time
+        self.end_time = end_time
+
+    def length(self) -> float:
+        return self.start.distance(self.end)
+
+    def duration(self): #durata
+        return self.end_time.delta_hour(self.start_time)
+
+    def speed(self): #velocità media spostamento km/h
+        return self.length()
+
+    #def __add__(self, o):
+    #   return Path((self.start, self.end, o.start, o.end))
+
+
+
 if __name__ == '__main__':
     p1 = Point(1, 1)
     print(p1.__str__())
