@@ -55,7 +55,10 @@ class Movement:
         return self.end_time.delta_hour(self.start_time)
 
     def speed(self): #velocità media spostamento km/h
-        return self.length()
+        return self.length() / self.duration()
+
+    def mod_end(self, point):
+        self.end = point
 
     #def __add__(self, o):
     #   return Path((self.start, self.end, o.start, o.end))
@@ -63,7 +66,7 @@ class Movement:
 class Path(Movement):
     new_id = itertools.count().__next__
 
-    def __init__(self, points: list, start_t, end_t):
+    def __init__(self, points: list, start_t, end_t): #day_hour
         super().__init__(points[0], points[len(points) - 1], start_t, end_t)
         self.id = Path.new_id()
         #analogo al codice di sopra con la libreria itertools
@@ -74,6 +77,9 @@ class Path(Movement):
     def length(self) -> float:
         return sum([self.points[i].distance(self.points[i + 1]) for i in range(0, len(self.points) - 1)])
 
+    def mod_end(self, point):
+        super().mod_end(point)
+        self.points[len(self.points) - 1] = point
 
 if __name__ == '__main__':
     p1 = Point(1, 1)
