@@ -61,11 +61,14 @@ class Movement:
     #   return Path((self.start, self.end, o.start, o.end))
 
 class Path(Movement):
-    #new_id = itertools.count().__next__
+    new_id = itertools.count().__next__
 
     def __init__(self, points: list, start_t, end_t):
         super().__init__(points[0], points[len(points) - 1], start_t, end_t)
-        #self.id = Path.new_id()
+        self.id = Path.new_id()
+        #analogo al codice di sopra con la libreria itertools
+        #self.id = Path.count
+        #Path.count +=1
         self.points = points
 
     def length(self) -> float:
@@ -91,7 +94,7 @@ if __name__ == '__main__':
     except DayHour.InvalidHour:
         print("errore")
 
-    print(p1==p2)
+    print(p1 == p2)
 
     m = Movement(Point(0, 0), Point(1, 1), DayHour(0, 0), DayHour(1, 1))
     path = Path([Point(0, 0), Point(0, 1), Point(1, 1)], DayHour(0, 0), DayHour(1, 1))
