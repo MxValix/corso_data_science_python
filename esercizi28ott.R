@@ -1,3 +1,5 @@
+# Esercizio 1 #######
+
 is_prime <- function(num) {
   if (num == 2) {
     TRUE
@@ -7,8 +9,6 @@ is_prime <- function(num) {
     TRUE
   }
 }
-
-# Esercizio 1 #######
 
 x <- readline(prompt="Inserisci un intero x: ")
 x <- as.integer(x)
