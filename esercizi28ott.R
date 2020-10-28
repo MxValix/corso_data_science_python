@@ -73,11 +73,5 @@ View(matrice)
 
 # Esercizio 5
 
-sottomatrice <- matrix(matrice, nrow = 5, ncol = 5)
-for (i in 1:5){
-  for (j in 1:5){
-    prod = i*j
-    sottomatrice[i, j] = prod
-  }
-}
+sottomatrice <- matrice[0:5,0:5]
 View (sottomatrice)
