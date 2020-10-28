@@ -61,11 +61,23 @@ while (x<=5) {
   x <- readline(prompt="Inserisci un numero maggiore di 5: ")
   x <- as.integer(x)
 }
-print(x)
-x <- 5
 matrice <- matrix(1:x, nrow = x, ncol = x)
 for (i in 1:x){
-  for (j in 1:x)
-    matrice[i, j] = i*j
+  for (j in 1:x){
+    prod = i*j
+    matrice[i, j] = prod
+  }
 }
 View(matrice)
+
+
+# Esercizio 5
+
+sottomatrice <- matrix(matrice, nrow = 5, ncol = 5)
+for (i in 1:5){
+  for (j in 1:5){
+    prod = i*j
+    sottomatrice[i, j] = prod
+  }
+}
+View (sottomatrice)
