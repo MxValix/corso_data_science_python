@@ -34,9 +34,9 @@ if (is_prime(x)){
 
 # Esercizio 2 #######
 
-cnt <- 0
+cnt <- 1
 
 while (cnt < 10) {
-  print(paste0("This is loop number: ", cnt))
+  print(paste("This is loop number: ", cnt))
   cnt = cnt + 1
 }
