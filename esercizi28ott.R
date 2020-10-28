@@ -51,3 +51,21 @@ for (x in v){
   outputMsg = paste("The square of X is: ", pow)
   print(outputMsg)
 }
+
+
+# Esercizio 4
+
+
+x <- 0
+while (x<=5) {
+  x <- readline(prompt="Inserisci un numero maggiore di 5: ")
+  x <- as.integer(x)
+}
+print(x)
+x <- 5
+matrice <- matrix(1:x, nrow = x, ncol = x)
+for (i in 1:x){
+  for (j in 1:x)
+    matrice[i, j] = i*j
+}
+View(matrice)
