@@ -30,3 +30,13 @@ if (is_prime(x)){
 } else {
   print("non è primo")
 }
+
+
+# Esercizio 2 #######
+
+cnt <- 0
+
+while (cnt < 10) {
+  print(paste0("This is loop number: ", cnt))
+  cnt = cnt + 1
+}
