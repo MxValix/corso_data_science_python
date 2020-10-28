@@ -36,9 +36,9 @@ if (is_prime(x)){
 cnt <- 1
 
 while (cnt < 10) {
-  outputMsg = paste("This is loop number: ", cnt)
+  outputMsg <- paste("This is loop number: ", cnt)
   print(outputMsg)
-  cnt = cnt + 1
+  cnt <- cnt + 1
 }
 
 
@@ -47,8 +47,8 @@ while (cnt < 10) {
 v <- seq(1,20,by=2)
 print(v)
 for (x in v){
-  pow = x*x
-  outputMsg = paste("The square of X is: ", pow)
+  pow <- x*x
+  outputMsg <- paste("The square of X is: ", pow)
   print(outputMsg)
 }
 
@@ -64,8 +64,8 @@ while (x<=5) {
 matrice <- matrix(1:x, nrow = x, ncol = x)
 for (i in 1:x){
   for (j in 1:x){
-    prod = i*j
-    matrice[i, j] = prod
+    prod <- i*j
+    matrice[i, j] <- prod
   }
 }
 View(matrice)
