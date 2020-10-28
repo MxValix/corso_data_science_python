@@ -31,12 +31,23 @@ if (is_prime(x)){
   print("non è primo")
 }
 
-
-# Esercizio 2 #######
+# Esercizio 2
 
 cnt <- 1
 
 while (cnt < 10) {
-  print(paste("This is loop number: ", cnt))
+  outputMsg = paste("This is loop number: ", cnt)
+  print(outputMsg)
   cnt = cnt + 1
+}
+
+
+# Esercizio 3
+
+v <- seq(1,20,by=2)
+print(v)
+for (x in v){
+  pow = x*x
+  outputMsg = paste("The square of X is: ", pow)
+  print(outputMsg)
 }
