@@ -96,6 +96,9 @@ length(sommaColonne)
 # sottomatrice con valori < 100
 sottomatrice100 = matriceRandom[which(matriceRandom>100)]
 View(sottomatrice100)
+# sottomatrice con 100<=valori<=200
+sottomatrice200 = matriceRandom[which(matriceRandom>=100 & matriceRandom<=200)]
+View(sottomatrice200)
 # diagonale sottomatrice 7x7
 sottomatrice7x7 <- diag(matriceRandom[0:7,0:7])
 View(sottomatrice7x7)
