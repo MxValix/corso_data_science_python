@@ -12,17 +12,20 @@ connessione <- dbConnect( drv,
 dbWriteTable(connessione, "WomenClothing", textmining)
 data <- dbReadTable(connessione, "WomenClothing")
 View(data)
-clothing1077 <- subset(data, Clothing.ID == 1077)
-dbWriteTable(connessione, "clothing1077", clothing1077)
-clothing1077 <- dbReadTable(connessione, "clothing1077")
-View(clothing1077)
 distinct_id <- unique(data$Clothing.ID)
 d_len <- length(distinct_id)
 View(distinct_id)
-ratingID <- matrix(0,nrow=d_len,ncol=2)
+tmp <- data.frame(Clothing.ID = numeric())
+distinct <- data.frame(Clothing.ID = numeric(), Rating = numeric())
+
 for (d in distinct_id){
   tmp <- subset(data, Clothing.ID == d)
   media <- mean(tmp$Rating)
-  print(paste("ID: ", tmp, " MEDIA: ", media))
+  distinct <- rbind(distinct,data.frame(tmp$Clothing.ID,media))
 }
-View(ratingID)
+distinct <- unique(distinct)
+names(distinct)[1] <- "Clothing.ID"
+names(distinct)[2] <- "Rating"
+dbWriteTable(connessione,"distinct", distinct)
+distinct <- dbReadTable(connessione,"distinct")
+View(distinct)
