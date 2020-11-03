@@ -8,5 +8,7 @@ connessione <- dbConnect( drv,
   host='localhost', 
   port=5432, 
   user = 'postgres',
-  password=  db_password 
-)
+  password=  db_password )
+dbWriteTable(con, "mtcars", mtcars)
+data <- dbReadTable(con, "mtcars")
+View(data)
