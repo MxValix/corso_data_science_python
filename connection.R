@@ -12,3 +12,4 @@ connessione <- dbConnect( drv,
 dbWriteTable(con, "mtcars", mtcars)
 data <- dbReadTable(con, "mtcars")
 View(data)
+dbListTables(con)
