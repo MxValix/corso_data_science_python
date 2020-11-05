@@ -1,3 +1,25 @@
+# Test Case 1
+# Enter your starting annual salary: 120000
+# Enter the percent of your salary to save, as a decimal: .05
+# Enter the cost of your dream home: 500000
+# Enter the semi­annual raise, as a decimal: .03
+# Number of months: 142
+#
+# Test Case 2
+# Enter your starting annual salary: 80000
+# Enter the percent of your salary to save, as a decimal: .1
+# Enter the cost of your dream home: 800000
+# Enter the semi­annual raise, as a decimal: .03
+# Number of months: 159
+#
+# Test Case 3
+# Enter your starting annual salary: 75000
+# Enter the percent of your salary to save, as a decimal: .05
+# Enter the cost of your dream home: 1500000
+# Enter the semi­annual raise, as a decimal: .05
+# Number of months: 261
+
+
 if __name__ == '__main__':
     annual_salary = int(input("Enter your starting annual salary: "))
     portion_saved = float(input("Enter the percent of your salary to save, as a decimal: "))
