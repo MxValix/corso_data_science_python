@@ -34,3 +34,35 @@ if __name__ == '__main__':
     df.groupby('Clothing ID')['Rating'].std()
 
     df['Age'].plot(kind='hist', color='teal')
+    department_name = df['Department Name']
+
+    frequency = df['Department Name'].value_counts()
+    print("Frequenza department:\n", frequency)
+    print(df['Department Name'].count(), " tot. dipartimento")
+
+    frequency = df['Class Name'].value_counts()
+    print("Frequenza class name:\n", frequency)
+    print(df['Class Name'].count(), " tot. class name")
+
+    # valutazioni da 1 a 5, valutazione migliore in base alla macrocategoria
+    df.groupby('Department Name')['Rating'].mean()
+
+
+    # creating initial dataframe
+    department_df = pd.DataFrame(department_name, columns=['Department Name'])
+    # converting type of columns to 'category'
+    department_df['department_name'] = department_df['Department Name'].astype('category')
+    # Assigning numerical values and storing in another column
+    department_df['department_name_ID'] = department_df['department_name'].cat.codes
+    print(department_df)
+
+    y = df['Clothing ID']
+    x = department_df['department_name_ID']
+
+    plt.plot(x, y, 'bo')
+    plt.title('Dipartimento')
+    plt.xlabel('IdProdotto')
+    plt.ylabel('nome')
+
+    plt.show()
+
